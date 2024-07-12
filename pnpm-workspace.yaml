@@ -1,0 +1,7 @@
+packages:
+  - "packages/shared/*"
+  - "packages/web/*"
+  - "packages/ai/**"
+  - "apps/*"
+  - "services/*"
+  - scripts
