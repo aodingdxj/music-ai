@@ -1,0 +1,32 @@
+{
+  "name": "@celeris/styles",
+  "type": "module",
+  "version": "0.0.3",
+  "description": "styles for Celeris",
+  "author": "Kirk Lin (https://github.com/kirklin)",
+  "license": "MIT",
+  "homepage": "https://github.com/kirklin/celeris-web",
+  "exports": {
+    "./*": "./*",
+    ".": "./"
+  },
+  "files": [
+    "**/*.css"
+  ],
+  "scripts": {
+  },
+  "peerDependencies": {
+    "unocss": "^0.61.0"
+  },
+  "dependencies": {
+    "@kirklin/reset-css": "^0.0.6",
+    "animate.css": "^4.1.1",
+    "unocss-preset-chinese": "^0.3.2",
+    "unocss-preset-ease": "^0.0.3"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.2.222",
+    "@iconify/vue": "4.1.2",
+    "unocss": "^0.61.0"
+  }
+}
