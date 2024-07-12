@@ -50,6 +50,7 @@ declare module 'vue' {
     NNotificationProvider: typeof import('@celeris/ca-components')['NNotificationProvider']
     NPagination: typeof import('@celeris/ca-components')['NPagination']
     NPopover: typeof import('@celeris/ca-components')['NPopover']
+    NPopselect: typeof import('@celeris/ca-components')['NPopselect']
     NResult: typeof import('@celeris/ca-components')['NResult']
     NRow: typeof import('@celeris/ca-components')['NRow']
     NScrollbar: typeof import('@celeris/ca-components')['NScrollbar']

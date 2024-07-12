@@ -73,21 +73,15 @@ conversations.value = generateInitData();
 
 // 页面加载
 onMounted(() => {
-  setTimeout(() => {
-    conversations.value[0].messages[0].text = ".";
-  }, 200);
-
-  setTimeout(() => {
-    conversations.value[0].messages[0].text = "..";
-  }, 400);
-
-  setTimeout(() => {
-    conversations.value[0].messages[0].text = "...";
-  }, 600);
-
-  setTimeout(() => {
-    conversations.value[0].messages[0].text = "Hi 您好呀!请问有什么可以帮您?您可以试着输入歌曲的风格，让我来帮您生成歌曲.";
-  }, 1000);
+  conversations.value[0].messages[0].text = "";
+  const msgs = "Hi 您好呀! 请问有什么可以帮您? 您可以试着输入歌曲的风格，让我来帮您生成歌曲。";
+  let times = 1;
+  for (const str of msgs) {
+    setTimeout(() => {
+      conversations.value[0].messages[0].text += str;
+    }, times * 100);
+    times++;
+  }
 
   nextTick(() => {
     conversationsVirtualListInst.value?.scrollTo({ position: "bottom" });
@@ -96,6 +90,8 @@ onMounted(() => {
 
 // 发送的消息
 const msg = ref("");
+
+const mode = ref("demo");
 
 let msgcount = 1;
 // 发送按钮
@@ -151,42 +147,46 @@ async function sendMsg() {
   msgcount++;
 
   // ai生成歌曲 start
-  // const data = await generateAudioByPrompt({
-  //   prompt,
-  //   make_instrumental: false,
-  //   wait_audio: false,
-  // });
+  if (mode.value === "Prd") {
+    const data = await generateAudioByPrompt({
+      prompt,
+      make_instrumental: false,
+      wait_audio: false,
+    });
 
-  // const ids = `${data[0].id},${data[1].id}`;
-  // logger.info(`ids: ${ids}`);
+    const ids = `${data[0].id},${data[1].id}`;
+    logger.info(`ids: ${ids}`);
 
-  // for (let i = 0; i < 60; i++) {
-  //   const data = await getAudioInformation(ids);
-  //   if (data[0].status === "streaming") {
-  //     logger.info(`${data[0].id} ==> ${data[0].audio_url}`);
-  //     logger.info(`${data[1].id} ==> ${data[1].audio_url}`);
+    for (let i = 0; i < 60; i++) {
+      const data = await getAudioInformation(ids);
+      if (data[0].status === "streaming") {
+        logger.info(`${data[0].id} ==> ${data[0].audio_url}`);
+        logger.info(`${data[1].id} ==> ${data[1].audio_url}`);
 
-  //     conversations.value[conversations.value.length - 1].messages[0].text = "已经生成了2首歌曲,请听";
-  //     conversations.value[conversations.value.length - 1].src = data[0].audio_url;
-  //     conversations.value[conversations.value.length - 1].src1 = data[1].audio_url;
-  //     conversations.value[conversations.value.length - 1].loading = false;
+        conversations.value[conversations.value.length - 1].messages[0].text = "已经生成了2首歌曲,请听";
+        conversations.value[conversations.value.length - 1].src = data[0].audio_url;
+        conversations.value[conversations.value.length - 1].src1 = data[1].audio_url;
+        conversations.value[conversations.value.length - 1].loading = false;
 
-  //     break;
-  //   }
-  //   // sleep 5s
-  //   await new Promise(resolve => setTimeout(resolve, 5000));
-  // }
+        break;
+      }
+      // sleep 5s
+      await new Promise(resolve => setTimeout(resolve, 5000));
+    }
+  }
   // ai生成歌曲 end
 
   // test
-  setTimeout(() => {
-    const url = "https://audiopipe.suno.ai/?item_id=6d3a30a2-3af9-46b5-bdff-c968951d799c";
-    const url1 = "https://audiopipe.suno.ai/?item_id=d4cc75bf-8dad-4892-9019-b3a97535d8c4";
-    conversations.value[conversations.value.length - 1].messages[0].text = "已经生成了2首歌曲,请听";
-    conversations.value[conversations.value.length - 1].src = url;
-    conversations.value[conversations.value.length - 1].src1 = url1;
-    conversations.value[conversations.value.length - 1].loading = false;
-  }, 2000);
+  if (mode.value === "Demo") {
+    setTimeout(() => {
+      const url = "/audio.mp3";
+      const url1 = "/audio1.mp3";
+      conversations.value[conversations.value.length - 1].messages[0].text = "已经生成了2首歌曲,请听";
+      conversations.value[conversations.value.length - 1].src = url;
+      conversations.value[conversations.value.length - 1].src1 = url1;
+      conversations.value[conversations.value.length - 1].loading = false;
+    }, 2000);
+  }
 
   nextTick(() => {
     conversationsVirtualListInst.value?.scrollTo({ position: "bottom" });
@@ -206,12 +206,16 @@ function download(url) {
   link.click();
   document.body.removeChild(link);
 }
+
+function changevalue(value) {
+  mode.value = value;
+}
 </script>
 
 <template>
   <NSplit direction="vertical" :default-size="0.8">
     <template #1>
-      <ChatPanelToolbar ref="toolbarRef" class="overflow-hidden" />
+      <ChatPanelToolbar ref="toolbarRef" class="overflow-hidden" @changevalue="changevalue" />
       <div ref="chatWrapperRef" class="w-full h-full flex flex-col">
         <div
           class="w-full common-bg dark:bg-[--action-color] rounded-2xl"
@@ -259,9 +263,8 @@ function download(url) {
       <div class="h-full w-full flex flex-col py-2">
         <div class="mb-1" />
         <NInput
-          v-model:value="msg"
-          type="textarea" placeholder="请输入音乐风格。。。。" clearable round show-count :resizable="false"
-          class="h-full bg-[--action-color]" @keyup.enter="sendMsg()"
+          v-model:value="msg" type="textarea" placeholder="请输入音乐风格。。。。" clearable round show-count
+          :resizable="false" class="h-full bg-[--action-color]" @keyup.enter="sendMsg()"
         />
         <div class="flex mt-1">
           <div class="flex-1" />

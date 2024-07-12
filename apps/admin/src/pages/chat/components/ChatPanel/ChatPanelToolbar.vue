@@ -5,29 +5,37 @@ import type { ChatContextInjectionKey } from "~/pages/chat/chatContext";
 import { chatContextInjectionKey } from "~/pages/chat/chatContext";
 import ActionIcon from "~/component/ActionIcon/src/ActionIcon.vue";
 
+const emit = defineEmits<{
+  (e: "changevalue", value: string): void;
+}>();
+
 const { selectedAssistantRef } = inject<ChatContextInjectionKey>(chatContextInjectionKey)!;
-const TrashIcon = "carbon:trash-can";
+// const TrashIcon = "carbon:trash-can";
 const MenuHorizontalIcon = "carbon:overflow-menu-horizontal";
 const SHARE_ICON = "tabler:share";
-const ExportIcon = "tabler:download";
+// const ExportIcon = "tabler:download";
 interface MenuItem {
   label: string;
-  key: string;
+  value: string;
   icon?: () => VNode<RendererNode, RendererElement, { [key: string]: any }>;
 }
 const menuItems: MenuItem[] = [
   {
-    label: "Export Session",
-    key: "Export",
-    icon: renderIcon(ExportIcon),
+    label: "模拟",
+    value: "Demo",
   },
   {
-    label: "Delete",
-    key: "Delete",
-    icon: renderIcon(TrashIcon),
+    label: "正式",
+    value: "Prd",
   },
 ];
 const menuOptions = ref<MenuItem[]>(menuItems);
+
+const popvalue = ref("Demo");
+
+function changevalue() {
+  emit("changevalue", popvalue.value);
+}
 </script>
 
 <template>
@@ -43,7 +51,7 @@ const menuOptions = ref<MenuItem[]>(menuItems);
       </div>
       <div class="info flex flex-col">
         <div class="name font-bold">
-          Music AI音乐创建
+          Music AI音乐创建 - 丁靖元
         </div>
         <div class="description">
           充满活力和乐观，随时准备创建好听的歌曲。
@@ -55,9 +63,9 @@ const menuOptions = ref<MenuItem[]>(menuItems);
       <ActionIcon tooltip-text="分享" :icon="SHARE_ICON" :size="20" transparent />
     </div>
     <div class="menu-options flex justify-center opacity-80">
-      <NDropdown>
+      <NPopselect v-model:value="popvalue" :options="menuOptions" @update:value="changevalue()">
         <ActionIcon :icon="MenuHorizontalIcon" :size="20" transparent />
-      </NDropdown>
+      </NPopselect>
     </div>
   </div>
 </template>
