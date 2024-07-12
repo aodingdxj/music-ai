@@ -91,7 +91,7 @@ onMounted(() => {
 // 发送的消息
 const msg = ref("");
 
-const mode = ref("demo");
+const mode = ref("Demo");
 
 let msgcount = 1;
 // 发送按钮
