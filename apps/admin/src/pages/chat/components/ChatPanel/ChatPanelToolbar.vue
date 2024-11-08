@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { RendererElement, RendererNode, VNode } from "vue";
-import { renderIcon } from "@celeris/components";
 import type { ChatContextInjectionKey } from "~/pages/chat/chatContext";
 import { chatContextInjectionKey } from "~/pages/chat/chatContext";
 import ActionIcon from "~/component/ActionIcon/src/ActionIcon.vue";
@@ -31,7 +30,7 @@ const menuItems: MenuItem[] = [
 ];
 const menuOptions = ref<MenuItem[]>(menuItems);
 
-const popvalue = ref("Demo");
+const popvalue = ref("Prd");
 
 function changevalue() {
   emit("changevalue", popvalue.value);

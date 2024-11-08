@@ -74,7 +74,7 @@ conversations.value = generateInitData();
 // 页面加载
 onMounted(() => {
   conversations.value[0].messages[0].text = "";
-  const msgs = "Hi 您好呀! 请问有什么可以帮您? 您可以试着输入歌曲的风格，让我来帮您生成歌曲。";
+  const msgs = "Hi 您好呀! 请问有什么可以帮您? 您可以试着输入歌曲的风格(如江南风、80年代摇滚、Western Country、中国民谣等)，让我来帮您生成歌曲。";
   let times = 1;
   for (const str of msgs) {
     setTimeout(() => {
@@ -91,7 +91,7 @@ onMounted(() => {
 // 发送的消息
 const msg = ref("");
 
-const mode = ref("Demo");
+const mode = ref("Prd");
 
 let msgcount = 1;
 // 发送按钮
@@ -153,6 +153,12 @@ async function sendMsg() {
       make_instrumental: false,
       wait_audio: false,
     });
+
+    if (!data) {
+      conversations.value[conversations.value.length - 1].messages[0].text = "很遗憾，未能生成你想要的歌曲!";
+      conversations.value[conversations.value.length - 1].loading = false;
+      return;
+    }
 
     const ids = `${data[0].id},${data[1].id}`;
     logger.info(`ids: ${ids}`);
