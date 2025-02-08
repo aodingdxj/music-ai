@@ -160,21 +160,54 @@ async function sendMsg() {
       return;
     }
 
-    const ids = `${data[0].id},${data[1].id}`;
-    logger.info(`ids: ${ids}`);
+    const ids = data.data;
+    // const ids = `${data[0].id},${data[1].id}`;
+    // logger.info(`ids: ${ids}`);
+
+    // for (let i = 0; i < 60; i++) {
+    //   const data = await getAudioInformation(ids);
+    //   if (data[0].status === "streaming") {
+    //     logger.info(`${data[0].id} ==> ${data[0].audio_url}`);
+    //     logger.info(`${data[1].id} ==> ${data[1].audio_url}`);
+
+    //     conversations.value[conversations.value.length - 1].messages[0].text = "已经生成了2首歌曲,请听";
+    //     conversations.value[conversations.value.length - 1].src = data[0].audio_url;
+    //     conversations.value[conversations.value.length - 1].src1 = data[1].audio_url;
+    //     conversations.value[conversations.value.length - 1].loading = false;
+
+    //     break;
+    //   }
+    //   // sleep 5s
+    //   await new Promise(resolve => setTimeout(resolve, 5000));
+    // }
 
     for (let i = 0; i < 60; i++) {
       const data = await getAudioInformation(ids);
-      if (data[0].status === "streaming") {
-        logger.info(`${data[0].id} ==> ${data[0].audio_url}`);
-        logger.info(`${data[1].id} ==> ${data[1].audio_url}`);
+      if (data.code === 0) {
+        // logger.info(`${data[0].id} ==> ${data[0].audio_url}`);
+        // logger.info(`${data[1].id} ==> ${data[1].audio_url}`);
 
-        conversations.value[conversations.value.length - 1].messages[0].text = "已经生成了2首歌曲,请听";
-        conversations.value[conversations.value.length - 1].src = data[0].audio_url;
-        conversations.value[conversations.value.length - 1].src1 = data[1].audio_url;
-        conversations.value[conversations.value.length - 1].loading = false;
+        let flag = false;
 
-        break;
+        for (let j = 0; j < data.data?.length; j++) {
+          if (data.data[j].type === "answer") {
+            const content = data.data[j].content;
+            conversations.value[conversations.value.length - 1].messages[0].text = content;
+            const startindex = content.indexOf("https://");
+            const endindex = content.indexOf(".wav") + 4;
+            const url = content.substring(startindex, endindex);
+            conversations.value[conversations.value.length - 1].src = url;
+            // conversations.value[conversations.value.length - 1].src1 = data[1].audio_url;
+            conversations.value[conversations.value.length - 1].loading = false;
+            flag = true;
+
+            break;
+          }
+        }
+
+        if (flag) {
+          break;
+        }
       }
       // sleep 5s
       await new Promise(resolve => setTimeout(resolve, 5000));
@@ -249,10 +282,10 @@ function changevalue(value) {
                         <source :src="item.src" type="audio/mpeg">
                       </audio>
                       <a style="cursor:pointer" @click="download(item.src)">下载1</a>
-                      <audio controls>
+                      <!-- <audio controls>
                         <source :src="item.src1" type="audio/mpeg">
                       </audio>
-                      <a style="cursor:pointer" @click="download(item.src1)">下载2</a>
+                      <a style="cursor:pointer" @click="download(item.src1)">下载2</a> -->
                     </NSpace>
                   </div>
                   <div class="date">

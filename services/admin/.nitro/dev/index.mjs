@@ -3,21 +3,21 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { provider, isWindows } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/std-env@3.7.0/node_modules/std-env/dist/index.mjs';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseStatus, setResponseHeader, send, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, createError, getRouterParam, getQuery as getQuery$1, readBody } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/h3@1.12.0/node_modules/h3/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/ofetch@1.3.4/node_modules/ofetch/dist/node.mjs';
-import destr from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/destr@2.0.3/node_modules/destr/dist/index.mjs';
-import { createCall, createFetch } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/unenv@1.9.0/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
-import { klona } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/klona@2.0.6/node_modules/klona/dist/index.mjs';
-import { snakeCase } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/scule@1.3.0/node_modules/scule/dist/index.mjs';
-import defu, { defuFn } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/defu@6.1.4/node_modules/defu/dist/defu.mjs';
-import { hash } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/ohash@1.1.3/node_modules/ohash/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/ufo@1.5.3/node_modules/ufo/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/unstorage@1.10.2_ioredis@5.4.1/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/unstorage@1.10.2_ioredis@5.4.1/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/radix3@1.1.2/node_modules/radix3/dist/index.mjs';
-import { ResultConstants, RoleConstants } from 'file://D:/Download/celeris-web-master/celeris-web-master/packages/web/constants/dist/index.js';
+import { provider, isWindows } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/std-env@3.7.0/node_modules/std-env/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseStatus, setResponseHeader, send, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, createError, getRouterParam, getQuery as getQuery$1, readBody } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/h3@1.12.0/node_modules/h3/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/ofetch@1.3.4/node_modules/ofetch/dist/node.mjs';
+import destr from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/destr@2.0.3/node_modules/destr/dist/index.mjs';
+import { createCall, createFetch } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/unenv@1.9.0/node_modules/unenv/runtime/fetch/index.mjs';
+import { createHooks } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
+import { klona } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/klona@2.0.6/node_modules/klona/dist/index.mjs';
+import { snakeCase } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/scule@1.3.0/node_modules/scule/dist/index.mjs';
+import defu, { defuFn } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/defu@6.1.4/node_modules/defu/dist/defu.mjs';
+import { hash } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/ohash@1.1.3/node_modules/ohash/dist/index.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/ufo@1.5.3/node_modules/ufo/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/unstorage@1.10.2_ioredis@5.4.1/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/unstorage@1.10.2_ioredis@5.4.1/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/radix3@1.1.2/node_modules/radix3/dist/index.mjs';
+import { ResultConstants, RoleConstants } from 'file://D:/Technical/AI/celeris-web-master/packages/web/constants/dist/index.js';
 
 function getEnv(key, opts) {
   const envKey = snakeCase(key).toUpperCase();
@@ -108,7 +108,7 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
-const serverAssets = [{"baseName":"server","dir":"D:/Download/celeris-web-master/celeris-web-master/services/admin/assets"}];
+const serverAssets = [{"baseName":"server","dir":"D:/Technical/AI/celeris-web-master/services/admin/assets"}];
 
 const assets = createStorage();
 
@@ -120,11 +120,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Download\\celeris-web-master\\celeris-web-master\\services\\admin","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Download\\celeris-web-master\\celeris-web-master\\services\\admin","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Download\\celeris-web-master\\celeris-web-master\\services\\admin\\.nitro","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Download\\celeris-web-master\\celeris-web-master\\services\\admin\\.nitro\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\Download\\celeris-web-master\\celeris-web-master\\services\\admin\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Technical\\AI\\celeris-web-master\\services\\admin","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Technical\\AI\\celeris-web-master\\services\\admin","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Technical\\AI\\celeris-web-master\\services\\admin\\.nitro","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Technical\\AI\\celeris-web-master\\services\\admin\\.nitro\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\Technical\\AI\\celeris-web-master\\services\\admin\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -668,24 +668,24 @@ function renderHTMLError(error) {
 `;
 }
 
-const _lazy_hFVmIV = () => Promise.resolve().then(function () { return login_post$1; });
-const _lazy_1rrzea = () => Promise.resolve().then(function () { return logout$1; });
-const _lazy_q2NMzj = () => Promise.resolve().then(function () { return permissionCode$1; });
-const _lazy_l6Pv08 = () => Promise.resolve().then(function () { return dataOverview$1; });
-const _lazy_tSGBSh = () => Promise.resolve().then(function () { return userAnalysisData$1; });
-const _lazy_yBLmB2 = () => Promise.resolve().then(function () { return index$1; });
-const _lazy_4TO8Tj = () => Promise.resolve().then(function () { return list$1; });
-const _lazy_AZcMIh = () => Promise.resolve().then(function () { return info$1; });
+const _lazy_SDLxRA = () => Promise.resolve().then(function () { return login_post$1; });
+const _lazy_LcspLR = () => Promise.resolve().then(function () { return logout$1; });
+const _lazy_GwF8YN = () => Promise.resolve().then(function () { return permissionCode$1; });
+const _lazy_SXW4tm = () => Promise.resolve().then(function () { return dataOverview$1; });
+const _lazy_7cgLEt = () => Promise.resolve().then(function () { return userAnalysisData$1; });
+const _lazy_S14aB8 = () => Promise.resolve().then(function () { return index$1; });
+const _lazy_O9A6ct = () => Promise.resolve().then(function () { return list$1; });
+const _lazy_0UQigU = () => Promise.resolve().then(function () { return info$1; });
 
 const handlers = [
-  { route: '/auth/login', handler: _lazy_hFVmIV, lazy: true, middleware: false, method: "post" },
-  { route: '/auth/logout', handler: _lazy_1rrzea, lazy: true, middleware: false, method: undefined },
-  { route: '/auth/permission-code', handler: _lazy_q2NMzj, lazy: true, middleware: false, method: undefined },
-  { route: '/dashboard/data-overview', handler: _lazy_l6Pv08, lazy: true, middleware: false, method: undefined },
-  { route: '/dashboard/user-analysis-data', handler: _lazy_tSGBSh, lazy: true, middleware: false, method: undefined },
-  { route: '/', handler: _lazy_yBLmB2, lazy: true, middleware: false, method: undefined },
-  { route: '/menu/list', handler: _lazy_4TO8Tj, lazy: true, middleware: false, method: undefined },
-  { route: '/user/info', handler: _lazy_AZcMIh, lazy: true, middleware: false, method: undefined }
+  { route: '/auth/login', handler: _lazy_SDLxRA, lazy: true, middleware: false, method: "post" },
+  { route: '/auth/logout', handler: _lazy_LcspLR, lazy: true, middleware: false, method: undefined },
+  { route: '/auth/permission-code', handler: _lazy_GwF8YN, lazy: true, middleware: false, method: undefined },
+  { route: '/dashboard/data-overview', handler: _lazy_SXW4tm, lazy: true, middleware: false, method: undefined },
+  { route: '/dashboard/user-analysis-data', handler: _lazy_7cgLEt, lazy: true, middleware: false, method: undefined },
+  { route: '/', handler: _lazy_S14aB8, lazy: true, middleware: false, method: undefined },
+  { route: '/menu/list', handler: _lazy_O9A6ct, lazy: true, middleware: false, method: undefined },
+  { route: '/user/info', handler: _lazy_0UQigU, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {

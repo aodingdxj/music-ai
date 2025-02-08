@@ -13,11 +13,28 @@ const baseUrl = "https://www.aodingdxj.top";
 //   return response.data;
 // }
 
+// async function generateAudioByPrompt1(payload) {
+//   const url = `${baseUrl}/api/generate`;
+//   try {
+//     const response = await axios.post(url, payload, {
+//       headers: { "Content-Type": "application/json" },
+//     });
+//     return response.data;
+//   } catch (e) {
+//     return false;
+//   }
+// }
+
 async function generateAudioByPrompt(payload) {
-  const url = `${baseUrl}/api/generate`;
+  const url = `https://api.coze.cn/v3/chat?`;
   try {
-    const response = await axios.post(url, payload, {
-      headers: { "Content-Type": "application/json" },
+    const data = {};
+    data.bot_id = "7468877821470179380";
+    data.user_id = "martin";
+    data.additional_messages = [{ content: payload.prompt, content_type: "text", role: "user" }];
+
+    const response = await axios.post(url, data, {
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer pat_3tzJJFjORJ6HnOKfvnyYBtPXDnuBKxmkH6fn9Ihuat5rsBabJW5VQ4xp2dfERtrd" },
     });
     return response.data;
   } catch (e) {
@@ -33,11 +50,21 @@ async function generateAudioByPrompt(payload) {
 //   return response.data;
 // }
 
-async function getAudioInformation(audioIds) {
-  const url = `${baseUrl}/api/get?ids=${audioIds}`;
-  const response = await axios.get(url);
+async function getAudioInformation(data) {
+  const id = data.id;
+  const conversation_id = data.conversation_id;
+  const url = `https://api.coze.cn/v3/chat/message/list?conversation_id=${conversation_id}&chat_id=${id}`;
+  const response = await axios.get(url, {
+    headers: { "Content-Type": "application/json", "Authorization": "Bearer pat_3tzJJFjORJ6HnOKfvnyYBtPXDnuBKxmkH6fn9Ihuat5rsBabJW5VQ4xp2dfERtrd" },
+  });
   return response.data;
 }
+
+// async function getAudioInformation1(audioIds) {
+//   const url = `${baseUrl}/api/get?ids=${audioIds}`;
+//   const response = await axios.get(url);
+//   return response.data;
+// }
 
 // async function getQuotaInformation() {
 //   const url = `${baseUrl}/api/get_limit`;

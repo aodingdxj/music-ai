@@ -3,26 +3,26 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { parentPort, threadId } from 'node:worker_threads';
-import { provider, isWindows } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/std-env@3.7.0/node_modules/std-env/dist/index.mjs';
-import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseStatus, setResponseHeader, send, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, createError, getRouterParam, getQuery as getQuery$1, readBody, defineLazyEventHandler } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/h3@1.12.0/node_modules/h3/dist/index.mjs';
-import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/ofetch@1.3.4/node_modules/ofetch/dist/node.mjs';
-import destr from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/destr@2.0.3/node_modules/destr/dist/index.mjs';
-import { createCall, createFetch } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/unenv@1.9.0/node_modules/unenv/runtime/fetch/index.mjs';
-import { createHooks } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
-import { klona } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/klona@2.0.6/node_modules/klona/dist/index.mjs';
-import { snakeCase } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/scule@1.3.0/node_modules/scule/dist/index.mjs';
-import defu, { defuFn } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/defu@6.1.4/node_modules/defu/dist/defu.mjs';
-import { hash } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/ohash@1.1.3/node_modules/ohash/dist/index.mjs';
-import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/ufo@1.5.3/node_modules/ufo/dist/index.mjs';
-import { createStorage, prefixStorage } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/unstorage@1.10.2_ioredis@5.4.1/node_modules/unstorage/dist/index.mjs';
-import unstorage_47drivers_47fs from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/unstorage@1.10.2_ioredis@5.4.1/node_modules/unstorage/drivers/fs.mjs';
-import { toRouteMatcher, createRouter } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/radix3@1.1.2/node_modules/radix3/dist/index.mjs';
-import { OpenAIStream, StreamingTextResponse } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/ai@3.2.19_openai@4.52.5_react@18.3.1_svelte@4.2.18_vue@3.4.31_zod@3.23.8/node_modules/ai/dist/index.mjs';
+import { provider, isWindows } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/std-env@3.7.0/node_modules/std-env/dist/index.mjs';
+import { defineEventHandler, handleCacheHeaders, splitCookiesString, isEvent, createEvent, fetchWithEvent, getRequestHeader, eventHandler, setHeaders, sendRedirect, proxyRequest, setResponseStatus, setResponseHeader, send, createApp, createRouter as createRouter$1, toNodeListener, lazyEventHandler, createError, getRouterParam, getQuery as getQuery$1, readBody, defineLazyEventHandler } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/h3@1.12.0/node_modules/h3/dist/index.mjs';
+import { createFetch as createFetch$1, Headers as Headers$1 } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/ofetch@1.3.4/node_modules/ofetch/dist/node.mjs';
+import destr from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/destr@2.0.3/node_modules/destr/dist/index.mjs';
+import { createCall, createFetch } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/unenv@1.9.0/node_modules/unenv/runtime/fetch/index.mjs';
+import { createHooks } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/hookable@5.5.3/node_modules/hookable/dist/index.mjs';
+import { klona } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/klona@2.0.6/node_modules/klona/dist/index.mjs';
+import { snakeCase } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/scule@1.3.0/node_modules/scule/dist/index.mjs';
+import defu, { defuFn } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/defu@6.1.4/node_modules/defu/dist/defu.mjs';
+import { hash } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/ohash@1.1.3/node_modules/ohash/dist/index.mjs';
+import { parseURL, withoutBase, joinURL, getQuery, withQuery } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/ufo@1.5.3/node_modules/ufo/dist/index.mjs';
+import { createStorage, prefixStorage } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/unstorage@1.10.2_ioredis@5.4.1/node_modules/unstorage/dist/index.mjs';
+import unstorage_47drivers_47fs from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/unstorage@1.10.2_ioredis@5.4.1/node_modules/unstorage/drivers/fs.mjs';
+import { toRouteMatcher, createRouter } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/radix3@1.1.2/node_modules/radix3/dist/index.mjs';
+import { OpenAIStream, StreamingTextResponse } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/ai@3.2.19_openai@4.52.5_react@18.3.1_svelte@4.2.18_vue@3.4.31_zod@3.23.8/node_modules/ai/dist/index.mjs';
 import process$1 from 'node:process';
-import OpenAI, { OpenAI as OpenAI$1 } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/openai@4.52.5/node_modules/openai/index.mjs';
-import urlJoin from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/url-join@5.0.0/node_modules/url-join/lib/url-join.js';
-import { logger } from 'file://D:/Download/celeris-web-master/celeris-web-master/packages/web/utils/dist/index.js';
-import { OpenAIClient, AzureKeyCredential } from 'file://D:/Download/celeris-web-master/celeris-web-master/node_modules/.pnpm/@azure+openai@1.0.0-beta.12/node_modules/@azure/openai/dist-esm/src/index.js';
+import OpenAI, { OpenAI as OpenAI$1 } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/openai@4.52.5/node_modules/openai/index.mjs';
+import urlJoin from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/url-join@5.0.0/node_modules/url-join/lib/url-join.js';
+import { logger } from 'file://D:/Technical/AI/celeris-web-master/packages/web/utils/dist/index.js';
+import { OpenAIClient, AzureKeyCredential } from 'file://D:/Technical/AI/celeris-web-master/node_modules/.pnpm/@azure+openai@1.0.0-beta.12/node_modules/@azure/openai/dist-esm/src/index.js';
 
 function getEnv(key, opts) {
   const envKey = snakeCase(key).toUpperCase();
@@ -114,7 +114,7 @@ new Proxy(/* @__PURE__ */ Object.create(null), {
   }
 });
 
-const serverAssets = [{"baseName":"server","dir":"D:/Download/celeris-web-master/celeris-web-master/packages/ai/services/openai/assets"}];
+const serverAssets = [{"baseName":"server","dir":"D:/Technical/AI/celeris-web-master/packages/ai/services/openai/assets"}];
 
 const assets = createStorage();
 
@@ -126,11 +126,11 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Download\\celeris-web-master\\celeris-web-master\\packages\\ai\\services\\openai","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Download\\celeris-web-master\\celeris-web-master\\packages\\ai\\services\\openai","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Download\\celeris-web-master\\celeris-web-master\\packages\\ai\\services\\openai\\.nitro","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Download\\celeris-web-master\\celeris-web-master\\packages\\ai\\services\\openai\\.nitro\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
-storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\Download\\celeris-web-master\\celeris-web-master\\packages\\ai\\services\\openai\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('root', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Technical\\AI\\celeris-web-master\\packages\\ai\\services\\openai","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('src', unstorage_47drivers_47fs({"driver":"fs","readOnly":true,"base":"D:\\Technical\\AI\\celeris-web-master\\packages\\ai\\services\\openai","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('build', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Technical\\AI\\celeris-web-master\\packages\\ai\\services\\openai\\.nitro","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('cache', unstorage_47drivers_47fs({"driver":"fs","readOnly":false,"base":"D:\\Technical\\AI\\celeris-web-master\\packages\\ai\\services\\openai\\.nitro\\cache","ignore":["**/node_modules/**","**/.git/**"]}));
+storage.mount('data', unstorage_47drivers_47fs({"driver":"fs","base":"D:\\Technical\\AI\\celeris-web-master\\packages\\ai\\services\\openai\\.data\\kv","ignore":["**/node_modules/**","**/.git/**"]}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -674,12 +674,12 @@ function renderHTMLError(error) {
 `;
 }
 
-const _lazy_hvizGz = () => Promise.resolve().then(function () { return _provider_$1; });
-const _lazy_4sMPCL = () => Promise.resolve().then(function () { return index$1; });
+const _lazy_orx3hE = () => Promise.resolve().then(function () { return _provider_$1; });
+const _lazy_6Rid25 = () => Promise.resolve().then(function () { return index$1; });
 
 const handlers = [
-  { route: '/api/chat/:provider', handler: _lazy_hvizGz, lazy: true, middleware: false, method: undefined },
-  { route: '/', handler: _lazy_4sMPCL, lazy: true, middleware: false, method: undefined }
+  { route: '/api/chat/:provider', handler: _lazy_orx3hE, lazy: true, middleware: false, method: undefined },
+  { route: '/', handler: _lazy_6Rid25, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {

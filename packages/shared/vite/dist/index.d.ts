@@ -1,1 +1,1 @@
-export * from "D:/Download/celeris-web-master/celeris-web-master/packages/shared/vite/src/index";
+export * from "D:/Technical/AI/celeris-web-master/packages/shared/vite/src/index";
